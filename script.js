@@ -1,14 +1,14 @@
-var fieldsList = new Array (9);
+var fieldsList = new Array(9);
 
 function ai() {
-  var id = Math.floor(Math.random () * 9);
-  fieldsList(id) ? ai() : move(id, 'ai');
+  var id = Math.floor(Math.random() * 9);
+  fieldsList[id] ? ai() : move(id, 'ai');
 }
 
 function move(id, role) {
   if (fieldsList[id]) return false;
   fieldsList[id] = role;
-  document.getElementById(id).className = 'cell' + role;
+  document.getElementById(id).className = 'cell ' + role;
   !checkEnd() ? (role == 'player')  ? ai() : null : reset();
 }
 
@@ -26,5 +26,5 @@ function checkEnd() {
 
 function reset() {
   alert ('Игра окончена');
-  location.reload;
+  location.reload();
 }
