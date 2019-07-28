@@ -2,14 +2,35 @@ body {
   background: aqua;
 }
 
-.ai {
-  background-color: white;
-  background-image: url("zero.png");
+.cell {
+  background-color: chartreuse;
+  background-size: contain;
+  border: 2px solid beige;
+  float: left;
+  height: 96px;
+  width: 96px;
+  color: black;
 }
 
-.player {
+.ai::before,
+.player::before {
+  height: 96px;
+  width: 96px;
+  display: block;
+  text-align: center;
+}
+
+.ai::before {
   background-color: white;
-  background-image: url("cross.png");
+  content: "○";
+  font-size: 155px;
+  line-height: 90px;
+}
+
+.player::before {
+  background-color: white;
+  content: "❌";
+  font-size: 75px;
 }
 
 .actions {
@@ -19,15 +40,6 @@ body {
 .container {
   margin: 50px auto;
   width: 300px;
-}
-
-.cell {
-  background-color: chartreuse;
-  background-size: contain;
-  border: 2px solid beige;
-  float: left;
-  height: 96px;
-  width: 96px;
 }
 
 .cell:hover {
