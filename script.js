@@ -4,7 +4,9 @@ var roles = ['ai', 'player'];
 
 function ai() {
   var id = Math.floor(Math.random() * 9);
-  fieldsList[id] ? ai() : move(id, 'ai');
+  fieldsList[id]
+  ? ai()
+  : move(id, 'ai');
 }
 
 function move(id, role) {
@@ -12,6 +14,16 @@ function move(id, role) {
   fieldsList[id] = role;
   document.getElementById(id).className = 'cell ' + role;
   // !checkEnd() ? (role == 'player')  ? ai() : null : reset();
+  if (!checkEnd()) {
+    if (role == 'player')  {
+      ai();
+    } else {
+      // null
+    }
+  } else {
+    reset();
+  }
+
   var result = checkEnd();
   if(result) {
     setTimeout(function () {
